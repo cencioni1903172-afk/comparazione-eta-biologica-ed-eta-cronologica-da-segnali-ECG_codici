@@ -30,7 +30,7 @@ else:
 # ======================================================
 # CONFIG
 # ======================================================
-CSV_PATH = "ptbxl_scalograms_with_age.csv"   # CSV con 15 colonne path + 1 colonna età
+CSV_PATH = "ptbxl_scalograms_with_age.csv"   
 BASE_DIR = "scalograms_1"                 # cartella base scalogrammi
 
 IMG_SIZE = 224
@@ -45,7 +45,7 @@ NUM_WORKERS = 4
 class PTBXLScalogramAgeDataset(Dataset):
     def __init__(self, df, transform=None, base_dir="scalograms_1"):
         self.df = df.reset_index(drop=True)
-        self.img_cols = df.columns[:-1]   # 15 colonne path
+        self.img_cols = df.columns[:-1]   
         self.ages = df.iloc[:, -1].values # età (float)
         self.transform = transform
         self.base_dir = base_dir
